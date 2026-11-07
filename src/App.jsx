@@ -42,6 +42,7 @@ const QUOTES = [
 
 export default function App() {
   const [goal, setGoal] = useState('all')
+  const [demo, setDemo] = useState(false)
   const [picked, setPicked] = useState([1, 6, 2])
   const [tier, setTier] = useState(10)
 
@@ -154,7 +155,8 @@ export default function App() {
                 ))}
               </div>
               <p className="muted">Average per meal · {macros.kcal} kcal</p>
-              <button className="btn full" onClick={() => {}}>Checkout (demo, no orders)</button>
+              <button className="btn full" onClick={() => setDemo(true)}>Checkout (demo, no orders)</button>
+              {demo && <p className="muted" role="status">Demo only: no order was placed and no payment was taken.</p>}
             </aside>
           </div>
         </section>
